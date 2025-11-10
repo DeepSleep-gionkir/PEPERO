@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>빼빼로 — 얇고 길게, 한 입의 즐움</title>
+  <title>빼빼로 — 얇고 길게, 한 입의 즐거움</title>
   <meta name="description" content="빼빼로에 대한 아주 깔끔한 소개 페이지. 종류, 즐기는 법, FAQ까지 심플하게 정리." />
   <meta property="og:title" content="빼빼로 — 얇고 길게, 한 입의 즐거움" />
   <meta property="og:description" content="빼빼로의 핵심만 담은 미니 가이드." />
@@ -46,28 +46,24 @@
       letter-spacing: -0.2px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      /* 배경 속성 제거 */
+      /* Alternating diagonal stripes: RED → CHOCO → RED ... (no gaps) */
+      background:
+        repeating-linear-gradient(135deg,
+          color-mix(in oklab, var(--red) 32%, transparent) 0 14rem,
+          color-mix(in oklab, var(--choco) 32%, transparent) 14rem 28rem
+        ),
+        var(--bg);
+      background-attachment: fixed;
     }
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
-      /* background: var(--bg); <- 이 라인을 교체 */
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       letter-spacing: -0.2px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      
-      /* Bold diagonal sweeps: red & choco (body로 이동) */
-      background:
-        linear-gradient(135deg,
-          color-mix(in oklab, var(--red) 32%, transparent) 0 34%,
-          transparent 34% 40%,
-          color-mix(in oklab, var(--choco) 32%, transparent) 40% 78%,
-          transparent 78% 100%
-        ),
-        var(--bg);
-      background-attachment: fixed;
     }
     a { color: inherit; text-decoration: none; }
     .container { width: min(1040px, 92vw); margin: 0 auto; }
