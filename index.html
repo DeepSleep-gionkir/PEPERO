@@ -38,7 +38,25 @@
       }
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    html, body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: -0.2px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Bold diagonal sweeps: red & choco */
+      background:
+        linear-gradient(135deg,
+          color-mix(in oklab, var(--red) 32%, transparent) 0 34%,
+          transparent 34% 40%,
+          color-mix(in oklab, var(--choco) 32%, transparent) 40% 78%,
+          transparent 78% 100%
+        ),
+        var(--bg);
+      background-attachment: fixed;
+    }
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans KR, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
@@ -56,7 +74,11 @@
     header {
       position: sticky; top: 0; z-index: 50;
       backdrop-filter: blur(8px);
-      background: color-mix(in oklab, var(--bg) 85%, transparent);
+      background:
+        linear-gradient(180deg,
+          color-mix(in oklab, var(--bg) 92%, transparent),
+          color-mix(in oklab, var(--biscuit) 10%, var(--bg))
+        );
       border-bottom: 1px solid var(--line);
     }
     .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
@@ -82,14 +104,28 @@
 
     /* Section */
     section { padding: 48px 0; border-top: 1px solid var(--line); }
-    section h2 { font-size: 24px; margin: 0 0 18px; letter-spacing: -0.4px; }
+    section h2 { font-size: 24px; margin: 0 0 18px; letter-spacing: -0.4px; padding-bottom: 6px;
+      background-image: linear-gradient(to right,
+        color-mix(in oklab, var(--red) 10%, transparent),
+        color-mix(in oklab, var(--choco) 10%, transparent) 50%,
+        color-mix(in oklab, var(--biscuit) 16%, transparent)
+      );
+      background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat;
+    }
     section p.lead { color: var(--muted); margin-top: -6px; }
 
     /* Cards */
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
     @media (max-width: 960px) { .grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
-    .card { background: var(--card); border: 1px solid var(--line); padding: 18px; border-radius: 14px; box-shadow: var(--shadow); }
+    .card { background:
+        linear-gradient(180deg,
+          color-mix(in oklab, var(--card) 95%, transparent),
+          color-mix(in oklab, var(--biscuit) 12%, var(--card))
+        );
+      border: 1px solid color-mix(in oklab, var(--biscuit) 22%, var(--line));
+      padding: 18px; border-radius: 14px; box-shadow: 0 10px 30px rgba(90, 56, 38, 0.06);
+    }
     .card h3 { margin: 0 0 8px; font-size: 18px; }
     .card p { margin: 0; color: var(--muted); }
 
@@ -110,11 +146,11 @@
     .badge { display:inline-block; padding: 6px 10px; border-radius: 999px; border:1px solid color-mix(in oklab, var(--biscuit) 50%, var(--line)); background: color-mix(in oklab, var(--biscuit) 24%, var(--bg)); font-size: 12px; color: var(--choco); }
 
     /* Accent strip */
-    .pepero-bar { display:flex; gap:6px; margin:18px 0 0; }
-    .pepero-bar i{ flex:1; height:6px; border-radius:999px; box-shadow: var(--shadow); }
-    .pepero-bar i.red{ background: var(--accent); }
-    .pepero-bar i.choco{ background: var(--choco); }
-    .pepero-bar i.biscuit{ background: var(--biscuit); }
+    
+    
+    
+    
+    
   </style>
 </head>
 <body>
@@ -134,7 +170,6 @@
     <section class="hero" id="about">
       <h1>얇고 길게,<br/>한 입의 즐거움</h1>
       <p class="subtitle">빼빼로는 막대 모양의 비스킷에 초콜릿이나 다양한 코팅을 입힌 과자다. 바삭함과 달콤함을 동시에 즐길 수 있다. 가벼워 보이지만, 얇은 비스킷과 코팅의 대비가 만들어내는 식감이 은근히 오래 남는다.</p>
-      <div class="pepero-bar" aria-hidden="true"><i class="red"></i><i class="choco"></i><i class="biscuit"></i></div>
       <div class="quick" role="list">
         <div class="chip" role="listitem"><b>형태</b><small>막대 비스킷 + 코팅</small></div>
         <div class="chip" role="listitem"><b>대표 날</b><small>매년 11월 11일</small></div>
